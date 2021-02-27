@@ -1,5 +1,6 @@
-# Message to follwo developers
+# Message to follow developers
 - Welcome to the Magic Cube
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
