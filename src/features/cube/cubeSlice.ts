@@ -1,12 +1,12 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
-import { AppThunk, RootState } from '../../app/store';
+import { RootState } from '../../app/store';
 
 interface Card {
   name: string,
 }
 
-interface Archetype {
+export interface Archetype {
   name: string,
 }
 
@@ -44,9 +44,21 @@ const defaultRatings: Rating[] = [
   },
 ];
 
+const defaultArchetypes: Archetype[] = [
+  {
+    name: 'Counters',
+  },
+  {
+    name: 'Agro',
+  },
+  {
+    name: 'Counters',
+  }
+]
+
 const initialState: CubeState = {
   cards: [],
-  archetypes: [],
+  archetypes: defaultArchetypes,
   ratings: defaultRatings,
 };
 
