@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { allCardsId, uncategorizedCardsId } from '../../constants';
 import { Archetype } from "../../interfaces";
 import { ArchetypeItem } from "../archetype-item/ArchetypeItem";
 
@@ -17,11 +18,11 @@ export function ArchetypeList(props: ArchetypeListProps) {
 
   const archetypes = props.archetypes;
   const allCards:Archetype = {
-    id: 'allCards',
+    id: allCardsId,
     name: 'All Cards'
   }
   const uncategorizedCards:Archetype = {
-    id: 'uncategorizedCards',
+    id: uncategorizedCardsId,
     name: 'Uncategorized Cards'
   }
   const listItems = archetypes.map((archetype) =>
