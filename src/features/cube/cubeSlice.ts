@@ -3,6 +3,7 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { RootState } from '../../app/store';
 import { Archetype, Card, CubeState, Rating } from './interfaces';
 import { ratingDefaults } from './rating.defaults';
+//!! ONLY FOR TESTING !!//
 import { testArchetypes, testCards, testRatings } from './test.data';
 
 // const initialState: CubeState = {
