@@ -41,7 +41,7 @@ export const testArchetypes: Archetype[] = [
   },
   {
     id: uuid(),
-    name: 'Counters',
+    name: 'Control',
   }
 ];
 
