@@ -8,6 +8,7 @@ export interface CubeState {
 export interface Card {
   id: string;
   name: string,
+  imageUrl: string,
   archetypes: ArchetypeEntry[];
 }
 

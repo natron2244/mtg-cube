@@ -49,11 +49,13 @@ export const testCards: Card[] = [
   {
     id: uuid(),
     name: 'Merciless Predator',
+    imageUrl: 'https://c1.scryfall.com/file/scryfall-cards/large/back/0/2/028aeebc-4073-4595-94da-02f9f96ea148.jpg?1562825445',
     archetypes: [],
   },
   {
     id: uuid(),
     name: 'Hinterland Hermit',
+    imageUrl: 'https://c1.scryfall.com/file/scryfall-cards/large/front/b/6/b6edac85-78e7-4e90-b538-b67c88bb5c62.jpg?1581395155',
     archetypes: [
       {
         archetypeId: testArchetypes[0].id,
@@ -64,6 +66,7 @@ export const testCards: Card[] = [
   {
     id: uuid(),
     name: 'Keldon Marauders',
+    imageUrl: 'https://c1.scryfall.com/file/scryfall-cards/large/front/b/f/bf42524c-97e5-40b2-8a6d-d2a1f0a9eb65.jpg?1580014576',
     archetypes: [
       {
         archetypeId: testArchetypes[0].id,
