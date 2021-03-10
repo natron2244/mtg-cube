@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 // import styles from './Cube.module.css';
-import { Archetype, selectArchetypes } from './cubeSlice'
+import { selectArchetypes } from './cubeSlice'
+import { Archetype } from './interfaces';
 
 interface ArchetypeItemProps {
   archetype: Archetype,

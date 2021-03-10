@@ -1,69 +1,25 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 import { RootState } from '../../app/store';
+import { Archetype, Card, CubeState, Rating } from './interfaces';
+import { ratingDefaults } from './rating.defaults';
+import { testArchetypes, testCards, testRatings } from './test.data';
 
-interface Card {
-  name: string,
-}
+// const initialState: CubeState = {
+//   cards: [],
+//   archetypes: [],
+//   ratings: ratingDefaults,
+// };
 
-export interface Archetype {
-  name: string,
-}
-
-interface Rating {
-  name: string,
-  value: number,
-}
-
-interface CubeState {
-  cards: Card[];
-  archetypes: Archetype[];
-  ratings: Rating[];
-}
-
-const defaultRatings: Rating[] = [
-  {
-    name: '1',
-    value: 1,
-  },
-  {
-    name: '2',
-    value: 2,
-  },
-  {
-    name: '3',
-    value: 3,
-  },
-  {
-    name: '4',
-    value: 4,
-  },
-  {
-    name: '5',
-    value: 5,
-  },
-];
-
-const defaultArchetypes: Archetype[] = [
-  {
-    name: 'Counters',
-  },
-  {
-    name: 'Agro',
-  },
-  {
-    name: 'Counters',
-  }
-]
-
+//!! ONLY FOR TESTING !!//
 const initialState: CubeState = {
-  cards: [],
-  archetypes: defaultArchetypes,
-  ratings: defaultRatings,
+  cards: testCards,
+  archetypes: testArchetypes,
+  ratings: testRatings,
 };
 
 export const cubeSlice = createSlice({
-  name: 'counter',
+  name: 'cube',
   initialState,
   reducers: {
     addCard: (state, action: PayloadAction<Card>) => {
