@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 
 import { ArchetypeList } from "./components/archetype-list/ArchetypeList";
@@ -11,13 +11,10 @@ import { Archetype } from "./interfaces";
 export function Cube() {
   const archetypes = useSelector(selectArchetypes);
   const cards = useSelector(selectCards);
+  const [selectedCards, setSelected] = useState(cardsInArchetypeId(allCardsId));
   function handleSelect(selectedArchetype: Archetype) {
     console.log(`Cube => Selected Archetype: ${selectedArchetype.name}`);
-
-    console.log(`Cube => Filter`);
-    // TODO: How do I update the cards list? Is this store in state
-    const filterCards = cardsInArchetypeId(selectedArchetype.id);
-    filterCards.map(card => console.log(`Card: ${card.name}`));
+    setSelected(cardsInArchetypeId(selectedArchetype.id));
   }
 
   function cardsInArchetypeId(id: string) {
@@ -51,7 +48,7 @@ export function Cube() {
         archetypes={archetypes}
         onItemSelected={handleSelect}
       ></ArchetypeList>
-      <CardList cards={cards}></CardList>
+      <CardList cards={selectedCards}></CardList>
     </div>
   );
 }
