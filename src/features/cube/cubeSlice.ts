@@ -27,7 +27,7 @@ export const cubeSlice = createSlice({
       state.cards = [...state.cards, action.payload];
     },
     addArchetypes: (state, action: PayloadAction<Archetype>) => {
-      state.archetypes = [...state.archetypes, action.payload];
+      state.archetypes.push(action.payload);
     },
     addRating: (state, action: PayloadAction<Rating>) => {
       state.ratings = [...state.ratings, action.payload];
