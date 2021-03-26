@@ -59,7 +59,7 @@ export function Cube() {
       {/* <button onClick={addArchetype}>Add Archetype</button>
       <button onClick={addCard}>Add Card</button>
       <br/> */}
-      <div className={styles.spiltview}>
+      <div className={isSmallDisplay ? styles.singleView : styles.spiltView}>
         <div>
           <ArchetypeList
             archetypes={archetypes}

@@ -3,6 +3,7 @@ import React from 'react';
 import { allCardsId, uncategorizedCardsId } from '../../constants';
 import { Archetype } from "../../interfaces";
 import { ArchetypeItem } from "../archetype-item/ArchetypeItem";
+import styles from "./ArchetypeList.module.css";
 
 interface ArchetypeListProps {
   archetypes: Archetype[],
@@ -29,7 +30,7 @@ export function ArchetypeList(props: ArchetypeListProps) {
     <ArchetypeItem key={archetype.id} archetype={archetype} onSelect={handleSelect}/>
   );
   return (
-    <ul>
+    <ul className={styles.list}>
       <ArchetypeItem key={allCards.id} archetype={allCards} onSelect={handleSelect}/>
       {listItems}
       <ArchetypeItem key={uncategorizedCards.id} archetype={uncategorizedCards} onSelect={handleSelect}/>

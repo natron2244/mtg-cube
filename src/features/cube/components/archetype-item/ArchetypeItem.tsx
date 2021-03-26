@@ -1,6 +1,7 @@
 import React from "react";
 
 import { Archetype } from "../../interfaces";
+import styles from "./ArchetypeItem.module.css";
 
 interface ArchetypeItemProps {
   archetype: Archetype;
@@ -14,8 +15,8 @@ export function ArchetypeItem(props: ArchetypeItemProps) {
     }
   }
   return (
-    <li>
-      <button onClick={handleClick}>{props.archetype.name}</button>
+    <li className={styles.listItem}>
+      <button onClick={handleClick} className={styles.button}>{props.archetype.name}</button>
     </li>
   );
 }
