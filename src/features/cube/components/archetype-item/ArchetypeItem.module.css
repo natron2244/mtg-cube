@@ -7,4 +7,15 @@
 .button {
   width: 100%;
   height: 100%;
+  background-color: transparent;
+  border: 0px;
+  border-bottom: 1px solid lightgray;
+}
+
+.button:active {
+  background-color: lightgray;
+}
+
+.button:hover {
+  background-color: lightgray;
 }

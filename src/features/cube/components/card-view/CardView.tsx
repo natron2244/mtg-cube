@@ -1,6 +1,7 @@
 import React from "react";
 
 import { Card } from "../../interfaces";
+import styles from "./CardView.module.css";
 
 interface CardViewProps {
   card: Card;
@@ -14,7 +15,7 @@ export function CardView(props: CardViewProps) {
     }
   }
   return (
-    <li>
+    <li className={styles.listItem}>
       <button onClick={handleClick}>
         <img src={props.card.imageUrl} alt={props.card.name}></img>
       </button>

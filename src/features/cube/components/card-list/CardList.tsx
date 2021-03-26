@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Card } from "../../interfaces";
 import { CardView } from '../card-view/CardView';
+import styles from "./CardList.module.css";
 
 interface CardListProps {
   cards: Card[],
@@ -20,7 +21,7 @@ export function CardList(props: CardListProps) {
     <CardView key={cards.id} card={cards} onSelect={handleSelect}/>
   );
   return (
-    <ul>
+    <ul className={styles.list}>
       {listItems}
     </ul>
   );
