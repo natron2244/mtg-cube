@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { v4 as uuid } from 'uuid';
+import { useMediaQuery } from "react-responsive";
+import { v4 as uuid } from "uuid";
 
+import styles from "./Cube.module.css";
 import { ArchetypeList } from "./components/archetype-list/ArchetypeList";
 import { CardList } from "./components/card-list/CardList";
 import { allCardsId, uncategorizedCardsId } from "./constants";
-// import styles from './Cube.module.css';
 import { addArchetypes, selectArchetypes, selectCards } from "./cubeSlice";
 import { Archetype } from "./interfaces";
 
@@ -14,18 +15,19 @@ export function Cube() {
   const cards = useSelector(selectCards);
   const [selectedCards, setSelected] = useState(cardsInArchetypeId(allCardsId));
   const dispatch = useDispatch();
-  
+  const isSmallDisplay = useMediaQuery({ query: "(max-width: 600px)" });
+
   function handleSelect(selectedArchetype: Archetype) {
     console.log(`Cube => Selected Archetype: ${selectedArchetype.name}`);
     setSelected(cardsInArchetypeId(selectedArchetype.id));
   }
 
   function cardsInArchetypeId(id: string) {
-    if(id === allCardsId) {
+    if (id === allCardsId) {
       return cards;
     }
 
-    if(id === uncategorizedCardsId) {
+    if (id === uncategorizedCardsId) {
       return uncategorizedCards();
     }
 
@@ -38,35 +40,39 @@ export function Cube() {
   }
 
   function uncategorizedCards() {
-    const filterCards = cards.filter((card) =>
-      card.archetypes.length === 0
-    );
+    const filterCards = cards.filter((card) => card.archetypes.length === 0);
     return filterCards;
   }
 
   function addArchetype(event: any) {
     const archetype: Archetype = {
       id: uuid(),
-      name: `Archetype`
-    }
+      name: `Archetype`,
+    };
     dispatch(addArchetypes(archetype));
   }
 
-  function addCard(event: any) {
-    
-  }
+  function addCard(event: any) {}
 
-  // TODO: Add the media query to show on wide vs skinny display (mobile vs desktop)
   return (
     <div>
-      <button onClick={addArchetype}>Add Archetype</button>
+      {/* <button onClick={addArchetype}>Add Archetype</button>
       <button onClick={addCard}>Add Card</button>
-      <br/>
-      <ArchetypeList
-        archetypes={archetypes}
-        onItemSelected={handleSelect}
-      ></ArchetypeList>
-      <CardList cards={selectedCards}></CardList>
+      <br/> */}
+      <div className={styles.spiltview}>
+        <div>
+          <ArchetypeList
+            archetypes={archetypes}
+            onItemSelected={handleSelect}
+          ></ArchetypeList>
+        </div>
+
+        {!isSmallDisplay && (
+          <div>
+            <CardList cards={selectedCards}></CardList>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

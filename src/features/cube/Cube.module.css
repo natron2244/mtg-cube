@@ -1,0 +1,7 @@
+.spiltview {
+  display: grid;
+  grid-gap: 0;
+  height: 100vh;
+  grid-template-rows: 1fr;
+  grid-template-columns: auto 1fr;
+}
